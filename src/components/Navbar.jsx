@@ -16,7 +16,9 @@ const Navbar = () => {
         {/* Left + Middle */}
         <div className="flex items-center gap-10">
           {/* Title */}
-          <h1 className="text-2xl font-semibold">The Daily Dev</h1>
+          <Link to="/" className="text-2xl font-semibold">
+            The Daily Dev
+          </Link>
 
           {/* Navigation Links */}
           <div className="flex items-center gap-6 text-gray-600 dark:text-gray-300">
