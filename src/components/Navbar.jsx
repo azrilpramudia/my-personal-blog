@@ -1,15 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [dark, setDark] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const toggleTheme = () => {
-    setDark(!dark);
-    document.documentElement.classList.toggle("dark");
-  };
+  // Load theme from localStorage
+  const [dark, setDark] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
+
+  // Apply theme to <html>
+  useEffect(() => {
+    if (dark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [dark]);
+
+  const toggleTheme = () => setDark(!dark);
 
   return (
     <nav className="w-full border-b bg-white dark:bg-gray-900 dark:text-gray-100 font-poppins">
@@ -21,18 +33,17 @@ const Navbar = () => {
             The Daily Dev
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 text-gray-600 dark:text-gray-300">
             <Link
               to="/article"
               className="
-      relative inline-block 
-      hover:text-black dark:hover:text-white
-      after:content-[''] after:absolute after:left-0 after:-bottom-1
-      after:h-0.5 after:w-0 after:bg-current
-      after:transition-all after:duration-300
-      hover:after:w-full
-    "
+                relative inline-block hover:text-black dark:hover:text-white
+                after:content-[''] after:absolute after:left-0 after:-bottom-1
+                after:h-[2px] after:w-0 after:bg-current
+                after:transition-all after:duration-300
+                hover:after:w-full
+              "
             >
               Article
             </Link>
@@ -40,20 +51,19 @@ const Navbar = () => {
             <Link
               to="/about"
               className="
-      relative inline-block 
-      hover:text-black dark:hover:text-white
-      after:content-[''] after:absolute after:left-0 after:-bottom-1
-      after:h-0.5 after:w-0 after:bg-current
-      after:transition-all after:duration-300
-      hover:after:w-full
-    "
+                relative inline-block hover:text-black dark:hover:text-white
+                after:content-[''] after:absolute after:left-0 after:-bottom-1
+                after:h-[2px] after:w-0 after:bg-current
+                after:transition-all after:duration-300
+                hover:after:w-full
+              "
             >
               About
             </Link>
           </div>
         </div>
 
-        {/* Right side */}
+        {/* Right Side */}
         <div className="flex items-center gap-6 text-gray-600 dark:text-gray-300">
           {/* Desktop Social */}
           <div className="hidden md:flex items-center gap-6">
@@ -72,11 +82,14 @@ const Navbar = () => {
           </div>
 
           {/* Dark Mode Toggle */}
-          <button onClick={toggleTheme} className="p-1 hover:opacity-70">
+          <button
+            onClick={toggleTheme}
+            className="p-1 hover:opacity-70 transition"
+          >
             {dark ? <Sun size={20} /> : <Moon size={20} />}
           </button>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden p-1 hover:opacity-70"
             onClick={() => setOpen(!open)}

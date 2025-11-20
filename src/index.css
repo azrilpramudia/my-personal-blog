@@ -2,5 +2,39 @@
 @import "tailwindcss";
 
 @theme {
-    --font-poppins: 'Poppins', sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+
+  /* LIGHT THEME COLORS */
+  --color-bg: #ffffff;
+  --color-text: #0f172a;
+  --color-nav-bg: #ffffff;
+  --color-nav-text: #0f172a;
+
+  /* DARK THEME COLORS */
+  --color-bg-dark: #0f172a;
+  --color-text-dark: #f8fafc;
+  --color-nav-bg-dark: #0f172a;
+  --color-nav-text-dark: #f8fafc;
+}
+
+/* LIGHT MODE DEFAULT */
+:root {
+  color-scheme: light;
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* DARK MODE ACTIVE */
+.dark {
+  color-scheme: dark;
+
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+/* Make body inherit background for full-page theme */
+body {
+  background-color: inherit;
+  color: inherit;
 }
