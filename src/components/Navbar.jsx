@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full border-b bg-white dark:bg-gray-900 dark:text-gray-100">
+    <nav className="w-full border-b bg-white dark:bg-gray-900 dark:text-gray-100 font-poppins">
       <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Left + Middle */}
         <div className="flex items-center gap-10">
@@ -20,9 +20,12 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <div className="flex items-center gap-6 text-gray-600 dark:text-gray-300">
-            <a href="#" className="hover:text-black dark:hover:text-white">
-              Blog
-            </a>
+            <Link
+              to="/article"
+              className="hover:text-black dark:hover:text-white"
+            >
+              Article
+            </Link>
             <Link
               to="/about"
               className="hover:text-black dark:hover:text-white"

@@ -4,6 +4,7 @@ import About from "../pages/About";
 export default function AppRouter() {
   return (
     <Routes>
+      <Route path="/" element={<div />} />
       <Route path="/about" element={<About />} />
     </Routes>
   );
