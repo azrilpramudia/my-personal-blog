@@ -4,37 +4,44 @@
 @theme {
   --font-poppins: "Poppins", sans-serif;
 
-  /* LIGHT THEME COLORS */
+  /* NAVBAR Light theme */
+  --nav-bg: #ffffff;
+  --nav-text: #0f172a;
+
+  /* NAVBAR Dark theme */
+  --nav-bg-dark: #0b1627;
+  --nav-text-dark: #f8fafc;
+
+  /* PAGE Light theme */
   --color-bg: #ffffff;
   --color-text: #0f172a;
-  --color-nav-bg: #ffffff;
-  --color-nav-text: #0f172a;
 
-  /* DARK THEME COLORS */
-  --color-bg-dark: #0f172a;
+  /* PAGE Dark theme */
+  --color-bg-dark: #0b1627;
   --color-text-dark: #f8fafc;
-  --color-nav-bg-dark: #0f172a;
-  --color-nav-text-dark: #f8fafc;
 }
 
-/* LIGHT MODE DEFAULT */
+/* Default light mode */
 :root {
-  color-scheme: light;
+  --page-bg-current: var(--color-bg);
+  --page-text-current: var(--color-text);
 
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  --nav-bg-current: var(--nav-bg);
+  --nav-text-current: var(--nav-text);
 }
 
-/* DARK MODE ACTIVE */
+/* Dark mode */
 .dark {
-  color-scheme: dark;
+  --page-bg-current: var(--color-bg-dark);
+  --page-text-current: var(--color-text-dark);
 
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-dark);
+  --nav-bg-current: var(--nav-bg-dark);
+  --nav-text-current: var(--nav-text-dark);
 }
 
-/* Make body inherit background for full-page theme */
+/* Global website background */
 body {
-  background-color: inherit;
-  color: inherit;
+  background-color: var(--page-bg-current);
+  color: var(--page-text-current);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
