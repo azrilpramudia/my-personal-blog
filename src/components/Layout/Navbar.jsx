@@ -133,6 +133,7 @@ const Navbar = () => {
             border-b
             shadow-md
             overflow-hidden
+            transition-colors duration-300
             ${open ? "dropdown-open" : "dropdown-close"}
           `}
         >
