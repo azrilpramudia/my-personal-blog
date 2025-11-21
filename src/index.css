@@ -74,11 +74,12 @@
 
 /* Animate in Dropdown */
 @layer utilities {
-  .dropdown-slide {
-    animation: dropdownSlide 0.3s ease forwards;
+  /* OPEN ANIMATION */
+  .dropdown-open {
+    animation: dropdownOpen 0.28s ease-out forwards;
   }
 
-  @keyframes dropdownSlide {
+  @keyframes dropdownOpen {
     0% {
       opacity: 0;
       max-height: 0;
@@ -86,8 +87,26 @@
     }
     100% {
       opacity: 1;
-      max-height: 400px; /* enough for 5 links */
+      max-height: 400px; /* enough space */
       transform: translateY(0);
+    }
+  }
+
+  /* CLOSE ANIMATION */
+  .dropdown-close {
+    animation: dropdownClose 0.25s ease-in forwards;
+  }
+
+  @keyframes dropdownClose {
+    0% {
+      opacity: 1;
+      max-height: 400px;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      max-height: 0;
+      transform: translateY(-10px);
     }
   }
 }

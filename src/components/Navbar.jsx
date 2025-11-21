@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { useState, useEffect } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [animate, setAnimate] = useState(false); // ← added for close animation
 
   const [dark, setDark] = useState(() => {
     return localStorage.getItem("theme") === "dark";
@@ -20,6 +22,15 @@ const Navbar = () => {
   }, [dark]);
 
   const toggleTheme = () => setDark(!dark);
+
+  // 🔥 Dropdown open/close animation controller
+  useEffect(() => {
+    if (open) {
+      setAnimate(true); // mount panel
+    } else {
+      setTimeout(() => setAnimate(false), 250); // wait for close animation
+    }
+  }, [open]);
 
   return (
     <nav
@@ -82,6 +93,7 @@ const Navbar = () => {
             </a>
           </div>
 
+          {/* Theme Toggle */}
           <button onClick={toggleTheme} className="p-1 hover:opacity-70">
             <div key={dark ? "sun" : "moon"}>
               {dark ? (
@@ -92,6 +104,7 @@ const Navbar = () => {
             </div>
           </button>
 
+          {/* Mobile Button */}
           <button
             className="md:hidden p-1 hover:opacity-70"
             onClick={() => setOpen(!open)}
@@ -109,21 +122,21 @@ const Navbar = () => {
         </div>
       </div>
 
-      {open && (
+      {/* 🔥 Mobile Dropdown (with open + close animation) */}
+      {animate && (
         <div
-          className="
-      md:hidden 
-      border-t 
-      py-4 
-      px-4
-      bg-[var(--nav-bg-current)]
-      text-[var(--nav-text-current)]
-      dropdown-slide
-      shadow-md
-      overflow-hidden
-    "
+          className={`
+            md:hidden 
+            w-full 
+            bg-[var(--page-bg-current)]
+            text-[var(--page-text-current)]
+            border-b
+            shadow-md
+            overflow-hidden
+            ${open ? "dropdown-open" : "dropdown-close"}
+          `}
         >
-          <div className="flex flex-col gap-5 text-base">
+          <div className="flex flex-col gap-5 text-base py-5 px-4">
             <Link
               to="/article"
               onClick={() => setOpen(false)}
