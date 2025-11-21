@@ -101,6 +101,7 @@ const Navbar = () => {
             md:hidden border-t py-4 px-4
             bg-[var(--nav-bg-current)]
             text-[var(--nav-text-current)]
+            transition-colors duration-300
           "
         >
           <div className="flex flex-col gap-4">
