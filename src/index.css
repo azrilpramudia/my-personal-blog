@@ -39,6 +39,47 @@
   --nav-text-current: var(--nav-text-dark);
 }
 
+/* Animate in Dropdown */
+@layer utilities {
+  .dropdown-expand {
+    animation: dropdownExpand 0.25s ease-out forwards;
+  }
+
+  @keyframes dropdownExpand {
+    0% {
+      opacity: 0;
+      max-height: 0;
+      transform: translateY(-6px);
+    }
+    100% {
+      opacity: 1;
+      max-height: 300px; /* enough space for your menu */
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Icon rotation animations */
+@layer utilities {
+  .icon-rotate-open {
+    animation: rotateOpen 0.25s ease forwards;
+  }
+
+  .icon-rotate-close {
+    animation: rotateClose 0.25s ease forwards;
+  }
+
+  @keyframes rotateOpen {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(90deg); }
+  }
+
+  @keyframes rotateClose {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(-90deg); }
+  }
+}
+
 /* Global website background */
 body {
   background-color: var(--page-bg-current);

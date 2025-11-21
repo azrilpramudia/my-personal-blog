@@ -90,7 +90,13 @@ const Navbar = () => {
             className="md:hidden p-1 hover:opacity-70"
             onClick={() => setOpen(!open)}
           >
-            {open ? <X size={24} /> : <Menu size={24} />}
+            {open ? (
+              <div className="icon-rotate-open">
+                <X size={24} />
+              </div>
+            ) : (
+              <Menu size={24} />
+            )}
           </button>
         </div>
       </div>
@@ -98,10 +104,11 @@ const Navbar = () => {
       {open && (
         <div
           className="
-            md:hidden border-t py-4 px-4
-            bg-[var(--nav-bg-current)]
-            text-[var(--nav-text-current)]
-            transition-colors duration-300
+     md:hidden border-t py-4 px-4
+      bg-[var(--nav-bg-current)]
+      text-[var(--nav-text-current)]
+      transition-colors duration-300
+      overflow-hidden dropdown-expand
           "
         >
           <div className="flex flex-col gap-4">
