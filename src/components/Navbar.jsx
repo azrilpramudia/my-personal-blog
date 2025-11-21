@@ -83,7 +83,13 @@ const Navbar = () => {
           </div>
 
           <button onClick={toggleTheme} className="p-1 hover:opacity-70">
-            {dark ? <Sun size={20} /> : <Moon size={20} />}
+            <div key={dark ? "sun" : "moon"}>
+              {dark ? (
+                <Sun size={20} className="theme-icon-enter" />
+              ) : (
+                <Moon size={20} className="theme-icon-enter" />
+              )}
+            </div>
           </button>
 
           <button
@@ -95,7 +101,9 @@ const Navbar = () => {
                 <X size={24} />
               </div>
             ) : (
-              <Menu size={24} />
+              <div className="icon-rotate-close">
+                <Menu size={24} />
+              </div>
             )}
           </button>
         </div>
@@ -104,14 +112,18 @@ const Navbar = () => {
       {open && (
         <div
           className="
-     md:hidden border-t py-4 px-4
+      md:hidden 
+      border-t 
+      py-4 
+      px-4
       bg-[var(--nav-bg-current)]
       text-[var(--nav-text-current)]
-      transition-colors duration-300
-      overflow-hidden dropdown-expand
-          "
+      dropdown-slide
+      shadow-md
+      overflow-hidden
+    "
         >
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-5 text-base">
             <Link
               to="/article"
               onClick={() => setOpen(false)}

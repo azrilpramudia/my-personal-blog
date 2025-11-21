@@ -39,21 +39,54 @@
   --nav-text-current: var(--nav-text-dark);
 }
 
-/* Animate in Dropdown */
+/* Theme icon animations */
 @layer utilities {
-  .dropdown-expand {
-    animation: dropdownExpand 0.25s ease-out forwards;
+  .theme-icon-enter {
+    animation: themeIconEnter 0.35s ease forwards;
   }
 
-  @keyframes dropdownExpand {
+  .theme-icon-exit {
+    animation: themeIconExit 0.35s ease forwards;
+  }
+
+  @keyframes themeIconEnter {
     0% {
       opacity: 0;
-      max-height: 0;
-      transform: translateY(-6px);
+      transform: rotate(-90deg) scale(0.8);
     }
     100% {
       opacity: 1;
-      max-height: 300px; /* enough space for your menu */
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+  @keyframes themeIconExit {
+    0% {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.8);
+    }
+  }
+}
+
+/* Animate in Dropdown */
+@layer utilities {
+  .dropdown-slide {
+    animation: dropdownSlide 0.3s ease forwards;
+  }
+
+  @keyframes dropdownSlide {
+    0% {
+      opacity: 0;
+      max-height: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      max-height: 400px; /* enough for 5 links */
       transform: translateY(0);
     }
   }
@@ -75,8 +108,8 @@
   }
 
   @keyframes rotateClose {
-    0%   { transform: rotate(0deg); }
-    100% { transform: rotate(-90deg); }
+    0%   { transform: rotate(90deg); }
+    100% { transform: rotate(0deg); }
   }
 }
 
