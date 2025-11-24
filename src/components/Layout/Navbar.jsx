@@ -47,9 +47,26 @@ const Navbar = () => {
           <Link to="/" className="text-2xl font-semibold">
             The Daily Dev
           </Link>
+        </div>
 
-          {/* Desktop Nav */}
+        {/* Right */}
+        <div className="flex items-center gap-6">
           <div className="hidden md:flex items-center gap-6">
+            <Link
+              to="/"
+              className="
+                relative inline-block
+                hover:text-[var(--nav-text-current)]
+                after:content-[''] after:absolute after:left-0 after:-bottom-1
+                after:h-[2px] after:w-0 
+                after:bg-[var(--nav-text-current)]
+                after:transition-all after:duration-300
+                hover:after:w-full
+              "
+            >
+              Home
+            </Link>
+
             <Link
               to="/article"
               className="
@@ -79,18 +96,6 @@ const Navbar = () => {
             >
               About
             </Link>
-          </div>
-        </div>
-
-        {/* Right */}
-        <div className="flex items-center gap-6">
-          <div className="hidden md:flex items-center gap-6">
-            <a href="#" className="hover:underline underline-offset-4">
-              Linkedin
-            </a>
-            <a href="#" className="hover:underline underline-offset-4">
-              Github
-            </a>
           </div>
 
           {/* Theme Toggle */}
