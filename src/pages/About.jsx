@@ -1,4 +1,4 @@
-import { MapPin } from "lucide-react";
+import { MapPin, BadgeCheck } from "lucide-react";
 import coverImg from "../assets/background.webp";
 import profileImg from "../assets/profile.webp";
 
@@ -31,17 +31,18 @@ const About = () => {
         <div className="pt-20 md:pt-24 flex flex-col md:flex-row md:items-center justify-between">
           <div>
             <h1 className="text-3xl font-semibold flex items-center gap-2">
-              ItsMeow <span className="text-blue-500 text-xl">✔</span>
+              ItsMeow
+              <BadgeCheck size={24} className="text-blue-500" />
             </h1>
 
-            <p className="flex items-center gap-2 text-gray-600 dark:text-gray-300 mt-1">
+            <p className="flex items-center gap-2 text-gray-600 dark:text-gray-500 mt-1">
               <MapPin size={18} />
               Bandung, West Java, Indonesia
             </p>
           </div>
 
           {/* Social links */}
-          <div className="flex items-center gap-4 mt-4 md:mt-0 text-gray-600 dark:text-gray-300">
+          <div className="flex items-center gap-4 mt-4 md:mt-0 text-gray-600 dark:text-gray-500">
             <a href="#" className="hover:text-blue-600">
               LinkedIn
             </a>
