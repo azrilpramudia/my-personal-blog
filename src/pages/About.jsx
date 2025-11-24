@@ -23,12 +23,7 @@ const About = () => {
           <img
             src={profileImg}
             alt="Profile"
-            className="
-              w-32 h-32 md:w-40 md:h-40
-              rounded-full object-cover
-              border-4 border-white dark:border-gray-900
-              shadow-lg
-            "
+            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover ring-4 shadow-lg"
           />
         </div>
 
