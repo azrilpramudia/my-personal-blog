@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [animate, setAnimate] = useState(false); // ← added for close animation
+  const [animate, setAnimate] = useState(false); // for dropdown animation
 
+  // Theme state management
   const [dark, setDark] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
@@ -23,10 +24,10 @@ const Navbar = () => {
 
   const toggleTheme = () => setDark(!dark);
 
-  // 🔥 Dropdown open/close animation controller
+  // Handle open state changes for animation
   useEffect(() => {
     if (open) {
-      setAnimate(true); // mount panel
+      setAnimate(true); // start animation on open
     } else {
       setTimeout(() => setAnimate(false), 250); // wait for close animation
     }
@@ -36,8 +37,8 @@ const Navbar = () => {
     <nav
       className="
         w-full border-b font-poppins
-        bg-[var(--nav-bg-current)]
-        text-[var(--nav-text-current)]
+        bg-(--nav-bg-current)]
+        text-(--nav-text-current)
         transition-colors duration-300
       "
     >
@@ -56,10 +57,10 @@ const Navbar = () => {
               to="/"
               className="
                 relative inline-block
-                hover:text-[var(--nav-text-current)]
+                hover:text-(--nav-text-current)
                 after:content-[''] after:absolute after:left-0 after:-bottom-1
-                after:h-[2px] after:w-0 
-                after:bg-[var(--nav-text-current)]
+                after:h-0.5 after:w-0 
+                after:bg-(--nav-text-current)
                 after:transition-all after:duration-300
                 hover:after:w-full
               "
@@ -71,10 +72,10 @@ const Navbar = () => {
               to="/article"
               className="
                 relative inline-block
-                hover:text-[var(--nav-text-current)]
+                hover:text-(--nav-text-current)
                 after:content-[''] after:absolute after:left-0 after:-bottom-1
-                after:h-[2px] after:w-0 
-                after:bg-[var(--nav-text-current)]
+                after:h-0.5 after:w-0 
+                after:bg-(--nav-text-current)
                 after:transition-all after:duration-300
                 hover:after:w-full
               "
@@ -86,10 +87,10 @@ const Navbar = () => {
               to="/about"
               className="
                 relative inline-block
-                hover:text-[var(--nav-text-current)]
+                hover:text-(--nav-text-current)
                 after:content-[''] after:absolute after:left-0 after:-bottom-1
-                after:h-[2px] after:w-0
-                after:bg-[var(--nav-text-current)]
+                after:h-0.5 after:w-0
+                after:bg-(--nav-text-current)
                 after:transition-all after:duration-300
                 hover:after:w-full
               "
@@ -127,14 +128,14 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* 🔥 Mobile Dropdown (with open + close animation) */}
+      {/* Mobile Dropdown Menu */}
       {animate && (
         <div
           className={`
             md:hidden 
             w-full 
-            bg-[var(--page-bg-current)]
-            text-[var(--page-text-current)]
+            bg-(--page-bg-current)
+            text-(--page-text-current)
             border-b
             shadow-md
             overflow-hidden
