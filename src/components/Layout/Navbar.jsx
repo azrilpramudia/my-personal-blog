@@ -1,43 +1,20 @@
-/* eslint-disable react-hooks/set-state-in-effect */
-import { useState, useEffect } from "react";
+// /* eslint-disable react-hooks/set-state-in-effect */
+import { useState } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../hooks/useTheme";
+import { useDropdownAnimation } from "../../hooks/useDropdownAnimation";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [animate, setAnimate] = useState(false); // for dropdown animation
-
-  // Theme state management
-  const [dark, setDark] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
-
-  useEffect(() => {
-    if (dark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [dark]);
-
-  const toggleTheme = () => setDark(!dark);
-
-  // Handle open state changes for animation
-  useEffect(() => {
-    if (open) {
-      setAnimate(true); // start animation on open
-    } else {
-      setTimeout(() => setAnimate(false), 250); // wait for close animation
-    }
-  }, [open]);
+  const { dark, toggleTheme } = useTheme();
+  const animate = useDropdownAnimation(open);
 
   return (
     <nav
       className="
         w-full border-b font-poppins
-        bg-(--nav-bg-current)]
+        bg-(--nav-bg-current)
         text-(--nav-text-current)
         transition-colors duration-300
       "
@@ -50,8 +27,9 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Right */}
+        {/* Right Side */}
         <div className="flex items-center gap-6">
+          {/* Socials Desktop */}
           <div className="hidden md:flex items-center gap-6">
             <Link
               to="/"
@@ -110,7 +88,7 @@ const Navbar = () => {
             </div>
           </button>
 
-          {/* Mobile Button */}
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden p-1 hover:opacity-70"
             onClick={() => setOpen(!open)}
@@ -128,7 +106,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown */}
       {animate && (
         <div
           className={`
@@ -159,22 +137,6 @@ const Navbar = () => {
             >
               About
             </Link>
-
-            <a
-              href="#"
-              onClick={() => setOpen(false)}
-              className="hover:underline underline-offset-4"
-            >
-              Linkedin
-            </a>
-
-            <a
-              href="#"
-              onClick={() => setOpen(false)}
-              className="hover:underline underline-offset-4"
-            >
-              Github
-            </a>
           </div>
         </div>
       )}
