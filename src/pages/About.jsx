@@ -1,4 +1,4 @@
-import { MapPin, BadgeCheck } from "lucide-react";
+import { MapPin, BadgeCheck, Snowflake } from "lucide-react";
 import coverImg from "../assets/background.webp";
 import profileImg from "../assets/profile.webp";
 import SocialIcons from "../components/SocialIcons";
@@ -19,13 +19,46 @@ const About = () => {
 
       {/* --- PROFILE HEADER SECTION --- */}
       <div className="max-w-5xl mx-auto px-4 relative">
-        {/* Profile image */}
+        {/* Speech Bubble */}
+        <div className="absolute -top-23 left-30 z-20">
+          <div className="relative bg-gray-800 text-white text-sm px-3 py-1 rounded-full shadow-lg inline-block">
+            Just a code dude
+            <span
+              className="absolute left-3 -bottom-2 w-0 h-0 
+      border-l-8 border-r-8 border-t-8 
+      border-l-transparent border-r-transparent border-t-gray-800"
+            ></span>
+          </div>
+        </div>
+
+        {/* Profile image + badge wrapper */}
         <div className="absolute -top-16 md:-top-20">
-          <img
-            src={profileImg}
-            alt="Profile"
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover ring-4 shadow-lg"
-          />
+          <div className="relative w-32 h-32 md:w-40 md:h-40">
+            {/* Profile Image */}
+            <img
+              src={profileImg}
+              alt="Profile"
+              className="w-full h-full rounded-full object-cover ring-4 shadow-lg"
+            />
+
+            {/* Badge Icon (bottom-right) */}
+            <div
+              className="
+        absolute 
+        bottom-0 right-0 
+        w-10 h-10 md:w-10 md:h-10
+        bg-gray-800 
+        rounded-full 
+        flex items-center justify-center
+        shadow-lg
+        cursor-pointer
+        hover:scale-110 
+        transition-transform duration-300
+      "
+            >
+              <Snowflake size={20} className="text-white" />
+            </div>
+          </div>
         </div>
 
         {/* Name + Location + Social icons */}
