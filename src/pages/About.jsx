@@ -19,21 +19,41 @@ const About = () => {
 
       {/* --- PROFILE HEADER SECTION --- */}
       <div className="max-w-5xl mx-auto px-4 relative">
-        {/* Speech Bubble */}
-        <div className="absolute -top-23 left-30 z-20">
-          <div className="relative bg-gray-800 text-white text-sm px-3 py-1 rounded-full shadow-lg inline-block">
-            Just a code dude
-            <span
-              className="absolute left-3 -bottom-2 w-0 h-0 
-      border-l-8 border-r-8 border-t-8 
-      border-l-transparent border-r-transparent border-t-gray-800"
-            ></span>
+        {/* Group wrapper so bubble reacts to profile hover */}
+        <div className="absolute -top-16 md:-top-20 group">
+          {/* Speech Bubble */}
+          <div className="absolute -top-5 left-22 z-20">
+            <div
+              className="
+      relative 
+      bg-gray-800 text-white 
+      text-sm 
+      px-4 py-1 
+      rounded-full 
+      shadow-lg 
+      inline-block
+      whitespace-nowrap              
+      transition-all duration-300
+      opacity-0 scale-90             
+      group-hover:opacity-100 
+      group-hover:scale-100          
+    "
+            >
+              Just a code dude
+              {/* Tail */}
+              <span
+                className="
+        absolute left-5 -bottom-2 
+        w-0 h-0 
+        border-l-8 border-r-8 border-t-8 
+        border-l-transparent border-r-transparent border-t-gray-800
+      "
+              ></span>
+            </div>
           </div>
-        </div>
 
-        {/* Profile image + badge wrapper */}
-        <div className="absolute -top-16 md:-top-20">
-          <div className="relative w-32 h-32 md:w-40 md:h-40">
+          {/* --- PROFILE IMAGE + BADGE --- */}
+          <div className="relative w-32 h-32 md:w-40 md:h-40 cursor-pointer">
             {/* Profile Image */}
             <img
               src={profileImg}
@@ -44,17 +64,16 @@ const About = () => {
             {/* Badge Icon (bottom-right) */}
             <div
               className="
-        absolute 
-        bottom-0 right-0 
-        w-10 h-10 md:w-10 md:h-10
-        bg-gray-800 
-        rounded-full 
-        flex items-center justify-center
-        shadow-lg
-        cursor-pointer
-        hover:scale-110 
-        transition-transform duration-300
-      "
+          absolute bottom-0 right-0 
+          w-10 h-10 md:w-10 md:h-10
+          bg-gray-800 
+          rounded-full 
+          flex items-center justify-center
+          shadow-lg
+          cursor-pointer
+          hover:scale-110 
+          transition-transform duration-300
+        "
             >
               <Snowflake size={20} className="text-white" />
             </div>
