@@ -1,94 +1,59 @@
-import { MapPin, BadgeCheck, Snowflake } from "lucide-react";
-import coverImg from "../assets/background.webp";
-import profileImg from "../assets/profile.webp";
-import SocialIcons from "../components/SocialIcons";
+import { MapPin, BadgeCheck, Snowflake } from 'lucide-react';
+import coverImg from '../assets/background.webp';
+import profileImg from '../assets/profile.webp';
+import SocialIcons from '../components/SocialIcons';
 
 const About = () => {
   return (
-    <div className="min-h-screen font-poppins">
+    <div className="font-poppins min-h-screen">
       {/* --- COVER --- */}
       <div className="w-full">
-        <div className="max-w-5xl mx-auto h-52 md:h-72 relative">
+        <div className="relative mx-auto h-52 max-w-5xl md:h-72">
           <img
             src={coverImg}
             alt="Cover"
-            className="w-full h-full object-cover rounded-b-lg"
+            className="h-full w-full rounded-b-lg object-cover"
           />
         </div>
       </div>
 
       {/* --- PROFILE HEADER SECTION --- */}
-      <div className="max-w-5xl mx-auto px-4 relative">
+      <div className="relative mx-auto max-w-5xl px-4">
         {/* Group wrapper so bubble reacts to profile hover */}
-        <div className="absolute -top-16 md:-top-20 group">
+        <div className="group absolute -top-16 md:-top-20">
           {/* Speech Bubble */}
           <div className="absolute -top-5 left-22 z-20">
-            <div
-              className="
-      relative 
-      bg-gray-800 text-white 
-      text-sm 
-      px-4 py-1 
-      rounded-full 
-      shadow-lg 
-      inline-block
-      whitespace-nowrap              
-      transition-all duration-300
-      opacity-0 scale-90             
-      group-hover:opacity-100 
-      group-hover:scale-100          
-    "
-            >
+            <div className="relative inline-block scale-90 rounded-full bg-gray-800 px-4 py-1 text-sm whitespace-nowrap text-white opacity-0 shadow-lg transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
               Just a code dude
-              {/* Tail */}
-              <span
-                className="
-        absolute left-5 -bottom-2 
-        w-0 h-0 
-        border-l-8 border-r-8 border-t-8 
-        border-l-transparent border-r-transparent border-t-gray-800
-      "
-              ></span>
+              <span className="absolute -bottom-2 left-5 h-0 w-0 border-t-8 border-r-8 border-l-8 border-t-gray-800 border-r-transparent border-l-transparent"></span>
             </div>
           </div>
 
           {/* --- PROFILE IMAGE + BADGE --- */}
-          <div className="relative w-32 h-32 md:w-40 md:h-40 cursor-pointer">
+          <div className="relative h-32 w-32 cursor-pointer md:h-40 md:w-40">
             {/* Profile Image */}
             <img
               src={profileImg}
               alt="Profile"
-              className="w-full h-full rounded-full object-cover ring-4 shadow-lg"
+              className="h-full w-full rounded-full object-cover shadow-lg ring-4"
             />
 
             {/* Badge Icon (bottom-right) */}
-            <div
-              className="
-          absolute bottom-0 right-0 
-          w-10 h-10 md:w-10 md:h-10
-          bg-gray-800 
-          rounded-full 
-          flex items-center justify-center
-          shadow-lg
-          cursor-pointer
-          hover:scale-110 
-          transition-transform duration-300
-        "
-            >
+            <div className="absolute right-0 bottom-0 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-gray-800 shadow-lg transition-transform duration-300 hover:scale-110 md:h-10 md:w-10">
               <Snowflake size={20} className="text-white" />
             </div>
           </div>
         </div>
 
         {/* Name + Location + Social icons */}
-        <div className="pt-20 md:pt-24 flex flex-col md:flex-row md:items-center justify-between">
+        <div className="flex flex-col justify-between pt-20 md:flex-row md:items-center md:pt-24">
           <div>
-            <h1 className="text-3xl font-semibold flex items-center gap-2">
+            <h1 className="flex items-center gap-2 text-3xl font-semibold">
               ItsMeow
               <BadgeCheck size={24} className="text-blue-500" />
             </h1>
 
-            <p className="flex items-center gap-2 text-gray-600 dark:text-gray-500 mt-1">
+            <p className="mt-1 flex items-center gap-2 text-gray-600 dark:text-gray-500">
               <MapPin size={18} />
               Bandung, West Java, Indonesia
             </p>
@@ -99,7 +64,7 @@ const About = () => {
       </div>
 
       {/* --- ABOUT CONTENT --- */}
-      <div className="max-w-5xl mx-auto px-4 mt-10">
+      <div className="mx-auto mt-10 max-w-5xl px-4">
         <h2 className="text-2xl font-semibold">About</h2>
 
         <p className="mt-4 leading-relaxed">
