@@ -5,7 +5,7 @@ import profileImg from "../assets/profile.webp";
 const About = () => {
   return (
     <div className="min-h-screen font-poppins">
-      {/* --- COVER (MATCH TEXT WIDTH) --- */}
+      {/* --- COVER --- */}
       <div className="w-full">
         <div className="max-w-5xl mx-auto h-52 md:h-72 relative">
           <img
@@ -18,7 +18,7 @@ const About = () => {
 
       {/* --- PROFILE HEADER SECTION --- */}
       <div className="max-w-5xl mx-auto px-4 relative">
-        {/* Profile image overlapping */}
+        {/* Profile image */}
         <div className="absolute -top-16 md:-top-20">
           <img
             src={profileImg}

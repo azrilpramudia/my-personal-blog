@@ -13,13 +13,13 @@ const Navbar = () => {
   return (
     <nav
       className="
-        w-full border-b font-poppins
+        w-full font-poppins
         bg-(--nav-bg-current)
         text-(--nav-text-current)
         transition-colors duration-300
       "
     >
-      <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between border-b border-(--nav-border-current)">
         {/* Left */}
         <div className="flex items-center gap-10">
           <Link to="/" className="text-2xl font-semibold">
