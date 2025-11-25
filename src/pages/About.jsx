@@ -1,6 +1,7 @@
 import { MapPin, BadgeCheck } from "lucide-react";
 import coverImg from "../assets/background.webp";
 import profileImg from "../assets/profile.webp";
+import SocialIcons from "../components/SocialIcons";
 
 const About = () => {
   return (
@@ -41,18 +42,7 @@ const About = () => {
             </p>
           </div>
 
-          {/* Social links */}
-          <div className="flex items-center gap-4 mt-4 md:mt-0 text-gray-600 dark:text-gray-500">
-            <a href="#" className="hover:text-blue-600">
-              LinkedIn
-            </a>
-            <a href="#" className="hover:text-blue-600">
-              GitHub
-            </a>
-            <a href="#" className="hover:text-blue-600">
-              Facebook
-            </a>
-          </div>
+          <SocialIcons />
         </div>
       </div>
 
