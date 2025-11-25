@@ -19,7 +19,6 @@ const About = () => {
 
       {/* --- PROFILE HEADER SECTION --- */}
       <div className="relative mx-auto max-w-5xl px-4">
-        {/* Group wrapper so bubble reacts to profile hover */}
         <div className="group absolute -top-16 md:-top-20">
           {/* Speech Bubble */}
           <div className="absolute -top-5 left-22 z-20">
@@ -39,8 +38,11 @@ const About = () => {
             />
 
             {/* Badge Icon (bottom-right) */}
-            <div className="absolute right-0 bottom-0 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-gray-800 shadow-lg transition-transform duration-300 hover:scale-110 md:h-10 md:w-10">
-              <Snowflake size={20} className="text-white" />
+            <div className="absolute right-0 bottom-0 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-gray-800 shadow-lg transition-all duration-300 group-hover:bg-blue-600 hover:scale-110">
+              <Snowflake
+                size={20}
+                className="text-white transition-transform duration-300 group-hover:rotate-180"
+              />
             </div>
           </div>
         </div>
