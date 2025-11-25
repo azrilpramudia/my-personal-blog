@@ -5,7 +5,7 @@ import profileImg from '../assets/profile.webp';
 import SocialIcons from '../components/SocialIcons';
 
 const About = () => {
-  const [showBubble, setShowBubble] = useState(false); // mobile toggle
+  const [showBubble, setShowBubble] = useState(false);
 
   return (
     <div className="font-poppins min-h-screen">
@@ -22,14 +22,14 @@ const About = () => {
 
       {/* --- PROFILE HEADER SECTION --- */}
       <div className="relative mx-auto max-w-5xl px-4">
-        {/* Profile group wrapper */}
+        {/* Entire profile group (hover + mobile click area) */}
         <div
-          className="group absolute -top-16 md:-top-20"
+          className="group absolute -top-16 cursor-pointer md:-top-20"
           onClick={() => setShowBubble((prev) => !prev)} // mobile toggle
           onMouseEnter={() => setShowBubble(true)} // desktop hover
-          onMouseLeave={() => setShowBubble(false)} // desktop hover out
+          onMouseLeave={() => setShowBubble(false)} // desktop hover leave
         >
-          {/* Speech Bubble */}
+          {/* --- SPEECH BUBBLE --- */}
           <div className="absolute -top-5 left-22 z-20">
             <div
               className={`relative inline-block scale-90 rounded-full bg-gray-800 px-4 py-1 text-sm whitespace-nowrap text-white shadow-lg transition-all duration-300 ${showBubble ? 'scale-100 opacity-100' : 'scale-90 opacity-0'} group-hover:scale-100 group-hover:opacity-100`}
@@ -40,7 +40,7 @@ const About = () => {
           </div>
 
           {/* --- PROFILE IMAGE + BADGE --- */}
-          <div className="relative h-32 w-32 cursor-pointer md:h-40 md:w-40">
+          <div className="relative h-32 w-32 md:h-40 md:w-40">
             {/* Profile Image */}
             <img
               src={profileImg}
@@ -48,17 +48,17 @@ const About = () => {
               className="h-full w-full rounded-full object-cover shadow-lg ring-4"
             />
 
-            {/* Badge Icon */}
-            <div className="absolute right-0 bottom-0 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-gray-800 shadow-lg transition-all duration-300 group-hover:bg-blue-600 hover:scale-110 active:scale-110">
+            {/* Badge Icon (bottom-right) */}
+            <div className="absolute right-0 bottom-0 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-gray-800 shadow-lg transition-all duration-300 group-hover:bg-blue-600 hover:scale-110 active:scale-110 active:bg-blue-600">
               <Snowflake
                 size={20}
-                className="text-white transition-transform duration-300 group-hover:rotate-180 group-active:rotate-180"
+                className="text-white transition-transform duration-300 group-hover:rotate-180 active:rotate-180"
               />
             </div>
           </div>
         </div>
 
-        {/* Name + Location + Social icons */}
+        {/* --- NAME + LOCATION + SOCIAL ICONS --- */}
         <div className="flex flex-col justify-between pt-20 md:flex-row md:items-center md:pt-24">
           <div>
             <h1 className="flex items-center gap-2 text-3xl font-semibold">
@@ -81,12 +81,15 @@ const About = () => {
 
         <p className="mt-4 leading-relaxed">
           Welcome to The Daily Dev! This blog is dedicated to sharing insights,
-          tutorials, and stories from the world of software development.
+          tutorials, and stories from the world of software development. Whether
+          you're a seasoned developer or just starting out, we hope you'll find
+          something valuable here.
         </p>
 
         <p className="mt-4 leading-relaxed">
           Our mission is to foster a community of developers who are passionate
-          about learning and growing together.
+          about learning and growing together. We cover a wide range of topics,
+          from front-end and back-end development to DevOps and best practices.
         </p>
 
         <p className="mt-4 leading-relaxed">
