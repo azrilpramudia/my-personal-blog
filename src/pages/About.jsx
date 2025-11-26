@@ -23,7 +23,7 @@ const About = () => {
 
       {/* --- PROFILE HEADER SECTION --- */}
       <div className="relative mx-auto max-w-5xl px-4">
-        {/* 🔥 WRAPPER for HOVER + MOBILE CLICK */}
+        {/* WRAPPER for HOVER + MOBILE CLICK */}
         <div
           className="group absolute -top-16 md:-top-20"
           onMouseEnter={() => setShowBubble(true)}
@@ -31,10 +31,10 @@ const About = () => {
         >
           {/* --- SPEECH BUBBLE (Desktop hover + Mobile click) --- */}
           {(showBubble || isBadgeActive) && (
-            <div className="animate-pop absolute -top-7 left-24 z-20">
+            <div className="animate-pop absolute -top-7 left-20 z-20 md:-top-7 md:left-27">
               <div className="relative inline-block rounded-full bg-gray-800 px-4 py-1 text-sm whitespace-nowrap text-white shadow-lg">
                 Just a code dude
-                <span className="absolute -bottom-1.5 left-5 h-0 w-0 border-t-8 border-r-8 border-l-8 border-t-gray-800 border-r-transparent border-l-transparent"></span>
+                <span className="absolute -bottom-1.5 left-6 h-0 w-0 border-t-8 border-r-8 border-l-8 border-t-gray-800 border-r-transparent border-l-transparent"></span>
               </div>
             </div>
           )}
@@ -46,13 +46,13 @@ const About = () => {
               src={profileImg}
               alt="Profile"
               className="h-full w-full rounded-full object-cover shadow-lg ring-4"
-              onClick={() => setShowBubble(!showBubble)} // mobile tap bubble
+              onClick={() => setShowBubble(!showBubble)}
             />
 
-            {/* Badge Icon */}
+            {/* BADGE ICONS */}
             <div
               className={`absolute right-0 bottom-0 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110 ${isBadgeActive ? 'bg-blue-600' : 'bg-gray-800 group-hover:bg-blue-600'} `}
-              onClick={() => setIsBadgeActive((prev) => !prev)} // mobile active color
+              onClick={() => setIsBadgeActive((prev) => !prev)}
             >
               <Snowflake
                 size={20}
