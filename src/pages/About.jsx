@@ -6,6 +6,7 @@ import SocialIcons from '../components/SocialIcons';
 
 const About = () => {
   const [showBubble, setShowBubble] = useState(false);
+  const [isBadgeActive, setIsBadgeActive] = useState(false);
 
   return (
     <div className="font-poppins min-h-screen">
@@ -22,43 +23,46 @@ const About = () => {
 
       {/* --- PROFILE HEADER SECTION --- */}
       <div className="relative mx-auto max-w-5xl px-4">
-        {/* Entire profile group (hover + mobile click area) */}
+        {/* 🔥 WRAPPER for HOVER + MOBILE CLICK */}
         <div
-          className="group absolute -top-16 cursor-pointer md:-top-20"
-          onClick={() => setShowBubble((prev) => !prev)} // mobile toggle
-          onMouseEnter={() => setShowBubble(true)} // desktop hover
-          onMouseLeave={() => setShowBubble(false)} // desktop hover leave
+          className="group absolute -top-16 md:-top-20"
+          onMouseEnter={() => setShowBubble(true)}
+          onMouseLeave={() => setShowBubble(false)}
         >
-          {/* --- SPEECH BUBBLE --- */}
-          <div className="absolute -top-5 left-22 z-20">
-            <div
-              className={`relative inline-block scale-90 rounded-full bg-gray-800 px-4 py-1 text-sm whitespace-nowrap text-white shadow-lg transition-all duration-300 ${showBubble ? 'scale-100 opacity-100' : 'scale-90 opacity-0'} group-hover:scale-100 group-hover:opacity-100`}
-            >
-              Just a code dude
-              <span className="absolute -bottom-2 left-5 h-0 w-0 border-t-8 border-r-8 border-l-8 border-t-gray-800 border-r-transparent border-l-transparent"></span>
+          {/* --- SPEECH BUBBLE (Desktop hover + Mobile click) --- */}
+          {(showBubble || isBadgeActive) && (
+            <div className="animate-pop absolute -top-7 left-24 z-20">
+              <div className="relative inline-block rounded-full bg-gray-800 px-4 py-1 text-sm whitespace-nowrap text-white shadow-lg">
+                Just a code dude
+                <span className="absolute -bottom-1.5 left-5 h-0 w-0 border-t-8 border-r-8 border-l-8 border-t-gray-800 border-r-transparent border-l-transparent"></span>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* --- PROFILE IMAGE + BADGE --- */}
-          <div className="relative h-32 w-32 md:h-40 md:w-40">
-            {/* Profile Image */}
+          <div className="relative h-32 w-32 cursor-pointer md:h-40 md:w-40">
+            {/* Profile image */}
             <img
               src={profileImg}
               alt="Profile"
               className="h-full w-full rounded-full object-cover shadow-lg ring-4"
+              onClick={() => setShowBubble(!showBubble)} // mobile tap bubble
             />
 
-            {/* Badge Icon (bottom-right) */}
-            <div className="absolute right-0 bottom-0 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-gray-800 shadow-lg transition-all duration-300 group-hover:bg-blue-600 hover:scale-110 active:scale-110 active:bg-blue-600">
+            {/* Badge Icon */}
+            <div
+              className={`absolute right-0 bottom-0 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110 ${isBadgeActive ? 'bg-blue-600' : 'bg-gray-800 group-hover:bg-blue-600'} `}
+              onClick={() => setIsBadgeActive((prev) => !prev)} // mobile active color
+            >
               <Snowflake
                 size={20}
-                className="text-white transition-transform duration-300 group-hover:rotate-180 active:rotate-180"
+                className={`text-white transition-transform duration-300 ${isBadgeActive ? 'rotate-180' : 'group-hover:rotate-180'} `}
               />
             </div>
           </div>
         </div>
 
-        {/* --- NAME + LOCATION + SOCIAL ICONS --- */}
+        {/* NAME + LOCATION + SOCIALS */}
         <div className="flex flex-col justify-between pt-20 md:flex-row md:items-center md:pt-24">
           <div>
             <h1 className="flex items-center gap-2 text-3xl font-semibold">
@@ -66,8 +70,7 @@ const About = () => {
             </h1>
 
             <p className="mt-1 flex items-center gap-2 text-gray-600 dark:text-gray-500">
-              <MapPin size={18} />
-              Bandung, West Java, Indonesia
+              <MapPin size={18} /> Bandung, West Java, Indonesia
             </p>
           </div>
 
@@ -81,15 +84,12 @@ const About = () => {
 
         <p className="mt-4 leading-relaxed">
           Welcome to The Daily Dev! This blog is dedicated to sharing insights,
-          tutorials, and stories from the world of software development. Whether
-          you're a seasoned developer or just starting out, we hope you'll find
-          something valuable here.
+          tutorials, and stories from the world of software development.
         </p>
 
         <p className="mt-4 leading-relaxed">
           Our mission is to foster a community of developers who are passionate
-          about learning and growing together. We cover a wide range of topics,
-          from front-end and back-end development to DevOps and best practices.
+          about learning and growing together.
         </p>
 
         <p className="mt-4 leading-relaxed">
