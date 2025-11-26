@@ -83,13 +83,22 @@ const About = () => {
         <h2 className="text-2xl font-semibold">About</h2>
 
         <p className="mt-4 leading-relaxed">
-          Welcome to The Daily Dev! This blog is dedicated to sharing insights,
-          tutorials, and stories from the world of software development.
+          Hi there! I'm Azril Pramudia, a passionate Software Engineer and Linux
+          enthusiast with a love for creating innovative solutions. With
+          experience in web development and basic IoT (Internet of Things), I
+          specialize in building responsive and user-friendly applications.
         </p>
 
         <p className="mt-4 leading-relaxed">
-          Our mission is to foster a community of developers who are passionate
-          about learning and growing together.
+          I'm a student at the Islamic University of Bandung, majoring in
+          Informatics Engineering, and I'm always eager to learn and grow in
+          this ever-evolving field.
+        </p>
+
+        <p className="mt-4 leading-relaxed">
+          When I'm not coding, you’ll usually find me exploring the latest tech
+          trends, contributing to open-source projects, or enjoying my hobbies
+          like gaming and music.
         </p>
 
         <p className="mt-4 leading-relaxed">
