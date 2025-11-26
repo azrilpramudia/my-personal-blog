@@ -9,7 +9,7 @@ const About = () => {
   const [isBadgeActive, setIsBadgeActive] = useState(false);
 
   return (
-    <div className="font-poppins min-h-screen">
+    <div className="font-poppins min-h-screen transition-colors duration-300">
       {/* --- COVER --- */}
       <div className="w-full">
         <div className="relative mx-auto h-52 max-w-5xl md:h-72">
