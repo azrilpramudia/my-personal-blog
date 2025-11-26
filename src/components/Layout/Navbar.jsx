@@ -11,7 +11,7 @@ const Navbar = () => {
   const animate = useDropdownAnimation(open);
 
   return (
-    <nav className="font-poppins w-full bg-(--nav-bg-current) text-(--nav-text-current)">
+    <nav className="font-poppins w-full">
       <div className="mx-auto flex max-w-5xl items-center justify-between border-b border-(--nav-border-current) px-4 py-4">
         {/* Left */}
         <div className="flex items-center gap-10">

@@ -2,12 +2,12 @@ const Home = () => {
   return (
     <div className="font-poppins min-h-screen">
       {/* --- HERO SECTION --- */}
-      <div className="mx-auto max-w-5xl border-b border-(--nav-border-current) bg-(--nav-bg-current)">
+      <div className="mx-auto flex max-w-5xl items-center justify-between border-b border-(--nav-border-current)">
         <div className="mx-auto max-w-5xl px-4 py-16">
           <h1 className="text-4xl font-bold text-(--nav-text-current)">
             Welcome to The Daily Dev
           </h1>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
             Insights, tutorials, stories — everything about software
             development, web technologies, and programming life.
           </p>
@@ -18,7 +18,7 @@ const Home = () => {
       <div className="mx-auto max-w-5xl px-4 py-10">
         <h2 className="mb-6 text-2xl font-semibold">Latest Posts</h2>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 dark:md:gap-8">
           {/* Card 1 */}
           <div className="rounded-lg border bg-white p-5 shadow-sm transition hover:shadow-md dark:bg-gray-900">
             <h3 className="mb-2 text-xl font-semibold">
